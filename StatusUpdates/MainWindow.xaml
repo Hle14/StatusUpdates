@@ -20,14 +20,30 @@
         <Label Grid.Column="0" Grid.Row="0">Enter a Status Update:</Label>
         <TextBox Grid.Column="0" Grid.Row="1" Background="AliceBlue" Name="status_update">Status update goes here</TextBox>
         <Button Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" Height="22" Style="{StaticResource SpanningButton}" Click="Button_Click">Submit</Button>
-        
-        <ListView ItemsSource="{Binding Statuses}" Grid.Column="1" Grid.RowSpan="3" Grid.Row="0" Margin="10,0,0,0" Background="AliceBlue">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Content}" />
-                    <GridViewColumn DisplayMemberBinding="{Binding timeStamp}" />
-                </GridView>
-            </ListView.View>
+                
+        <ListView Margin="5" Name="status_display_list" Grid.Column="1" Grid.RowSpan="4" Grid.Row="0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="AliceBlue" CornerRadius="4">
+                        <DockPanel>
+                            <TextBlock Text="Status: " />
+                            <TextBlock Text="{Binding Content}" FontWeight="Bold" />
+                            <TextBlock Text="Time: " />
+                            <TextBlock Text="{Binding timeStamp}" FontWeight="Bold"/>
+                        </DockPanel>
+                    </Border>
+                    <!--
+                    <WrapPanel>
+                        <TextBlock Text="Status: " />
+                        <TextBlock Text="{Binding Content}" FontWeight="Bold" />
+                        <TextBlock Text="\n " />
+                        <TextBlock Text="Time: " />
+                        <TextBlock Text="{Binding timeStamp}" FontWeight="Bold"/>
+                    </WrapPanel>
+                    -->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
         </ListView>
     </Grid>
 </Window>

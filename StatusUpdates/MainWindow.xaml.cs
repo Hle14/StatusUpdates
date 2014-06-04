@@ -46,6 +46,7 @@ namespace StatusUpdates
             });
             InitializeComponent();
             //Loaded+=MainWindow_Loaded;
+            status_display_list.ItemsSource = _statuses;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -57,7 +58,7 @@ namespace StatusUpdates
         {
             //_statuses.Add(new StatusUpdate(status_update.Text));
             _statuses.Add(new StatusUpdate {
-                Content = "a filler line",
+                Content = status_update.Text + "\n",
                 timeStamp = DateTime.Now
             });
 
